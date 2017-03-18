@@ -8,7 +8,7 @@ var socket_io = require('socket.io');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/boardgame');
+var db = monk(process.env.MONGODB_URI);
 
 var app = express();
 
