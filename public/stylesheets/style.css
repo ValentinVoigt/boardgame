@@ -1,0 +1,81 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body {
+    background-image: url('/static/images/bg.png');
+}
+
+
+@font-face {
+    font-family: crayon;
+    src: url(/static/fonts/dk_crayon_crumble.ttf);
+}
+h1, h2, h3, h4, h5, h6, .crayon {
+    font-family: crayon;
+}
+
+.d {
+    border: 1px solid #ff00ff;
+}
+
+.paper {
+    box-shadow: 6px 6px 30px -10px rgba(0,0,0,0.60);
+    background-color: #fff;
+    border: 1px solid rgba(220, 220, 220, 0.3);
+    border-radius: 2px;
+}
+
+.left, .right, .main {
+    margin: 6px;
+}
+.left, .right {
+    width: 300px;
+}
+.left {
+    order: 0;
+}
+.right {
+    order: 2;
+}
+.main {
+    order: 1;
+    justify-content: center;
+}
+
+main {
+    background-image: url('/static/images/chess/chessboard.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+    position: relative;
+    /* Placement is complex and therefore done via JS */
+    display: none; 
+}
+
+.chat-form {
+    flex-basis: 35px;
+}
+.chat-content {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    word-wrap:break-word;
+    height: 0px;
+}
+.chat-content p {
+    margin: 0;
+}
+
+.flex-grow-1 { flex-grow: 1; }
+.flex-grow-2 { flex-grow: 2; }
+.flex-grow-3 { flex-grow: 3; }
+.flex-grow-4 { flex-grow: 4; }
+.flex-grow-5 { flex-grow: 5; }
+.flex-grow-6 { flex-grow: 6; }
+.flex-grow-7 { flex-grow: 7; }
+.flex-grow-8 { flex-grow: 8; }
+.flex-grow-9 { flex-grow: 9; }
+.flex-grow-10 { flex-grow: 10; }
+.flex-grow-11 { flex-grow: 11; }
+.flex-grow-12 { flex-grow: 12; }

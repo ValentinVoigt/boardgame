@@ -1,0 +1,44 @@
+<script type="text/javascript" src="/static/javascripts/app.js"></script>
+
+<section class="main p-2 paper flex-grow-1 d-flex">
+    <main data-width="885" data-height="855" data-gameid="{{ gameid }}" data-username="{{ username }}">
+    </main>
+</section>
+<section class="left paper p-2">
+    <h2>Black pieces</h2>
+    <p>
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/black-king.svg" alt="Black King" />
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/black-queen.svg" alt="Black Queen" />
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/black-rock.svg" alt="Black Rock" />
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/black-bishop.svg" alt="Black Bishop" />
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/black-knight.svg" alt="Black Knight" />
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/black-pawn.svg" alt="Black Pawn" />
+    </p>
+
+    <h2>White pieces</h2>
+    <p>
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/white-king.svg" alt="White King" />
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/white-queen.svg" alt="White Queen" />
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/white-rock.svg" alt="White Rock" />
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/white-bishop.svg" alt="White Bishop" />
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/white-knight.svg" alt="White Knight" />
+        <img width="64" class="new-piece" src="/static/images/chess/pieces/white-pawn.svg" alt="White Pawn" />
+    </p>
+</section>
+<section class="right d-flex flex-column">
+    <div class="settings mb-2 paper p-3 flex-grow-4">
+        <ul class="list-unstyled">
+            <li>Game ID: <code>{{ gameid }}</code></li>
+            <li>Username: <code>{{ username }}</code></li>
+        </ul>
+    </div>
+    <div class="chat paper mt-2 d-flex flex-column flex-grow-8">
+        <div class="chat-content m-2 flex-grow-1">
+        </div>
+        <div class="chat-form m-2">
+            <form>
+                <input id="chat-message" type="text" placeholder="Say something..." class="form-control" />
+            </form>
+        </div>
+    </div>
+</section>
