@@ -39,6 +39,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use('/static/stylesheets', require('node-sass-middleware')({
+    src: path.join(__dirname, 'public/stylesheets'),
+    sourceMap: true
+}));
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // routes

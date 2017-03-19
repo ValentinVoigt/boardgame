@@ -1,0 +1,121 @@
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body {
+    background-image: url('/static/images/bg.png');
+}
+
+
+@font-face {
+    font-family: crayon;
+    src: url(/static/fonts/dk_crayon_crumble.ttf);
+}
+h1, h2, h3, h4, h5, h6, .crayon {
+    font-family: crayon;
+}
+
+.d {
+    border: 1px solid #ff00ff;
+}
+
+.paper {
+    box-shadow: 6px 6px 30px -10px rgba(0,0,0,0.60);
+    background-color: #fff;
+    border: 1px solid rgba(220, 220, 220, 0.3);
+    border-radius: 2px;
+}
+
+.left, .right, .main {
+    margin: 6px;
+}
+
+.left {
+    order: 0;
+}
+.right {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+@include media-breakpoint-only(xl) { .left, .right { width: 300px; } }
+@include media-breakpoint-only(lg) { .left, .right { width: 240px; } }
+@include media-breakpoint-down(md) { body { flex-wrap: wrap; } }
+@include media-breakpoint-down(md) { .left, .main, .right { width: 100% !important; } }
+
+.main {
+    order: 1;
+    justify-content: center;
+}
+
+main {
+    background-image: url('/static/images/chess/chessboard.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+    position: relative;
+    /* Placement is complex and therefore done via JS */
+    display: none; 
+}
+
+@include media-breakpoint-down(md) {
+    main {
+        min-height: 100vw;
+    }
+    .left img {
+        width: 48px;
+    }
+}
+
+.chat {
+    min-height: 250px;
+}
+.chat-form {
+    flex-basis: 35px;
+}
+.chat-content {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    word-wrap:break-word;
+    height: 0px;
+}
+.chat-content p {
+    margin: 0;
+}
+
+.startdialog {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+@include media-breakpoint-down(sm) {
+    .startdialog > section {
+        width: 100%;
+        margin: 15px;
+    }
+}
+@include media-breakpoint-up(md) {
+    .startdialog > section {
+        width: 500px;
+    }
+}
+
+.flex-grow-1 { flex-grow: 1; }
+.flex-grow-2 { flex-grow: 2; }
+.flex-grow-3 { flex-grow: 3; }
+.flex-grow-4 { flex-grow: 4; }
+.flex-grow-5 { flex-grow: 5; }
+.flex-grow-6 { flex-grow: 6; }
+.flex-grow-7 { flex-grow: 7; }
+.flex-grow-8 { flex-grow: 8; }
+.flex-grow-9 { flex-grow: 9; }
+.flex-grow-10 { flex-grow: 10; }
+.flex-grow-11 { flex-grow: 11; }
+.flex-grow-12 { flex-grow: 12; }

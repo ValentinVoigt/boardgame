@@ -152,6 +152,10 @@ function add_chat_message(sender, message) {
 }
 
 $(function() {
+    // change size of the actual board
+    window.onresize = on_window_resize;
+    on_window_resize(null);
+
     // enable drag and drop
     $('.left').droppable({
         accept: '.piece',
@@ -169,10 +173,6 @@ $(function() {
         revert: 'invalid',
         appendTo: 'body'
     });
-
-    // change size of the actual board
-    window.onresize = on_window_resize;
-    on_window_resize(null);
 
     // socket.io events
     socket = io();

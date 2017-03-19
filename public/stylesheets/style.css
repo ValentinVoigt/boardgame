@@ -1,81 +1,137 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-body {
-    background-image: url('/static/images/bg.png');
-}
+  margin: 0;
+  padding: 0;
+  height: 100%; }
 
+body {
+  background-image: url("/static/images/bg.png"); }
 
 @font-face {
-    font-family: crayon;
-    src: url(/static/fonts/dk_crayon_crumble.ttf);
-}
+  font-family: crayon;
+  src: url(/static/fonts/dk_crayon_crumble.ttf); }
+
 h1, h2, h3, h4, h5, h6, .crayon {
-    font-family: crayon;
-}
+  font-family: crayon; }
 
 .d {
-    border: 1px solid #ff00ff;
-}
+  border: 1px solid #ff00ff; }
 
 .paper {
-    box-shadow: 6px 6px 30px -10px rgba(0,0,0,0.60);
-    background-color: #fff;
-    border: 1px solid rgba(220, 220, 220, 0.3);
-    border-radius: 2px;
-}
+  box-shadow: 6px 6px 30px -10px rgba(0, 0, 0, 0.6);
+  background-color: #fff;
+  border: 1px solid rgba(220, 220, 220, 0.3);
+  border-radius: 2px; }
 
 .left, .right, .main {
-    margin: 6px;
-}
-.left, .right {
-    width: 300px;
-}
+  margin: 6px; }
+
 .left {
-    order: 0;
-}
+  order: 0; }
+
 .right {
-    order: 2;
-}
+  order: 2;
+  display: flex;
+  flex-direction: column; }
+
+@media (min-width: 1200px) {
+  .left, .right {
+    width: 300px; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .left, .right {
+    width: 240px; } }
+
+@media (max-width: 991px) {
+  body {
+    flex-wrap: wrap; } }
+
+@media (max-width: 991px) {
+  .left, .main, .right {
+    width: 100% !important; } }
+
 .main {
-    order: 1;
-    justify-content: center;
-}
+  order: 1;
+  justify-content: center; }
 
 main {
-    background-image: url('/static/images/chess/chessboard.png');
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: contain;
-    position: relative;
-    /* Placement is complex and therefore done via JS */
-    display: none; 
-}
+  background-image: url("/static/images/chess/chessboard.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+  position: relative;
+  /* Placement is complex and therefore done via JS */
+  display: none; }
+
+@media (max-width: 991px) {
+  main {
+    min-height: 100vw; }
+  .left img {
+    width: 48px; } }
+
+.chat {
+  min-height: 250px; }
 
 .chat-form {
-    flex-basis: 35px;
-}
-.chat-content {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    word-wrap:break-word;
-    height: 0px;
-}
-.chat-content p {
-    margin: 0;
-}
+  flex-basis: 35px; }
 
-.flex-grow-1 { flex-grow: 1; }
-.flex-grow-2 { flex-grow: 2; }
-.flex-grow-3 { flex-grow: 3; }
-.flex-grow-4 { flex-grow: 4; }
-.flex-grow-5 { flex-grow: 5; }
-.flex-grow-6 { flex-grow: 6; }
-.flex-grow-7 { flex-grow: 7; }
-.flex-grow-8 { flex-grow: 8; }
-.flex-grow-9 { flex-grow: 9; }
-.flex-grow-10 { flex-grow: 10; }
-.flex-grow-11 { flex-grow: 11; }
-.flex-grow-12 { flex-grow: 12; }
+.chat-content {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  height: 0px; }
+
+.chat-content p {
+  margin: 0; }
+
+.startdialog {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center; }
+
+@media (max-width: 767px) {
+  .startdialog > section {
+    width: 100%;
+    margin: 15px; } }
+
+@media (min-width: 768px) {
+  .startdialog > section {
+    width: 500px; } }
+
+.flex-grow-1 {
+  flex-grow: 1; }
+
+.flex-grow-2 {
+  flex-grow: 2; }
+
+.flex-grow-3 {
+  flex-grow: 3; }
+
+.flex-grow-4 {
+  flex-grow: 4; }
+
+.flex-grow-5 {
+  flex-grow: 5; }
+
+.flex-grow-6 {
+  flex-grow: 6; }
+
+.flex-grow-7 {
+  flex-grow: 7; }
+
+.flex-grow-8 {
+  flex-grow: 8; }
+
+.flex-grow-9 {
+  flex-grow: 9; }
+
+.flex-grow-10 {
+  flex-grow: 10; }
+
+.flex-grow-11 {
+  flex-grow: 11; }
+
+.flex-grow-12 {
+  flex-grow: 12; }
+
+/*# sourceMappingURL=style.css.map */
