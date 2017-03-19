@@ -8,7 +8,6 @@ var socket_io = require('socket.io');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk(process.env.MONGODB_URI);
 
 var app = express();
 
@@ -16,7 +15,14 @@ var app = express();
 var io = socket_io();
 app.set('io', io);
 
-// Make our db accessible to our router
+// Setup DB and make our db accessible to our router
+var db = monk(process.env.MONGODB_URI);
+db.then(() => {
+    console.log("Successfully connected to database");
+}).catch((err) => {
+    console.error(err);
+    process.exit(1);
+});
 app.set('db', db);
 app.use(function(req, res, next){
     req.db = db;
