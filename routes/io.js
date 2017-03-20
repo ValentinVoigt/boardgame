@@ -13,14 +13,17 @@ function users_in_room(io, room) {
 }
 
 io.on('connection', function(socket) {
-    socket.on('join', function(msg) {
+    socket.on('join', function(msg, ack) {
         socket.join(msg.room);
         socket.room = msg.room;
         socket.username = msg.username;
+        var all = users_in_room(io, socket.room);
         socket.to(socket.room).emit('joined', {
             username: socket.username,
-            all: users_in_room(io, socket.room)
+            all: all
         });
+        if (ack instanceof Function)
+            ack(all);
     });
     socket.on('disconnect', function() {
         socket.to(socket.room).emit('left', {

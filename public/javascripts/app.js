@@ -192,12 +192,15 @@ $(function() {
         return false;
     });
     socket.on('connect', function() {
-        console.log("Joining room ", get_gameid());
-        add_chat_message("You entered the game.");
+        console.log("Joining room", get_gameid());
         set_userlist([get_username()]);
         socket.emit('join', {
             room: get_gameid(),
             username: get_username()
+        }, function(users) {
+            add_chat_message("You entered the game.");
+            console.log("Joined room with users", users);
+            set_userlist(users);
         });
     });
     socket.on('joined', function(msg) {
