@@ -151,6 +151,13 @@ function add_chat_message(sender, message) {
     $(".chat-content").scrollTop($(".chat-content")[0].scrollHeight);
 }
 
+function set_userlist(all) {
+    $('.chat-users ul').empty();
+    $.each(all, function(idx, username) {
+        $('<li>').text(username).appendTo($('.chat-users ul'));
+    });
+}
+
 $(function() {
     // change size of the actual board
     window.onresize = on_window_resize;
@@ -187,6 +194,7 @@ $(function() {
     socket.on('connect', function() {
         console.log("Joining room ", get_gameid());
         add_chat_message("You entered the game.");
+        set_userlist([get_username()]);
         socket.emit('join', {
             room: get_gameid(),
             username: get_username()
@@ -194,10 +202,12 @@ $(function() {
     });
     socket.on('joined', function(msg) {
         console.log("User joined room", msg.username);
+        set_userlist(msg.all);
         add_chat_message(msg.username + " joined the game.");
     });
     socket.on('left', function(msg) {
         console.log("User left room", msg.username);
+        set_userlist(msg.all);
         add_chat_message(msg.username + " left the game.");
     });
     socket.on('chat message', function(msg) {

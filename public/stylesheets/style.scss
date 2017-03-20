@@ -75,8 +75,10 @@ main {
 .chat {
     min-height: 250px;
 }
+.chat-users {
+    flex-basis: 0;
+}
 .chat-form {
-    flex-basis: 35px;
 }
 .chat-content {
     overflow-y: scroll;

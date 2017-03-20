@@ -2,15 +2,31 @@ module.exports = function(app, db, io) {
 
 var pieces = db.get('pieces');
 
+function users_in_room(io, room) {
+    var users = [];
+    Object.keys(io.sockets.sockets).forEach(function(key) {
+        var socket = io.sockets.sockets[key];
+        if (socket.room == room)
+            users.push(socket.username);
+    });
+    return users;
+}
+
 io.on('connection', function(socket) {
     socket.on('join', function(msg) {
         socket.join(msg.room);
         socket.room = msg.room;
         socket.username = msg.username;
-        socket.to(socket.room).emit('joined', {username: socket.username});
+        socket.to(socket.room).emit('joined', {
+            username: socket.username,
+            all: users_in_room(io, socket.room)
+        });
     });
     socket.on('disconnect', function() {
-        socket.to(socket.room).emit('left', {username: socket.username});
+        socket.to(socket.room).emit('left', {
+            username: socket.username,
+            all: users_in_room(io, socket.room)
+        });
     });
     socket.on('chat message', function(msg) {
         socket.to(socket.room).emit('chat message', msg);
