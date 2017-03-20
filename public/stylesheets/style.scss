@@ -78,6 +78,9 @@ main {
 .chat-users {
     flex-basis: 0;
 }
+.chat-users ul {
+    list-style-image: url('/static/images/bullet.png');
+}
 .chat-form {
 }
 .chat-content {
