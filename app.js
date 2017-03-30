@@ -19,6 +19,7 @@ app.set('io', io);
 var db = monk(process.env.MONGODB_URI);
 db.then(() => {
     console.log("Successfully connected to database");
+	db.get('pieces').index('id', { unique: true });
 }).catch((err) => {
     console.error(err);
     process.exit(1);
